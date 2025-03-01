@@ -19,7 +19,7 @@ import {
 import EyeOpenSvg from "../../images/EyeOpenSvg";
 import EyeCloseSvg from "../../images/EyeCloseSvg";
 
-export const Login = ({ setmode }) => {
+export const Login = ({ setmode, closeModal, modal }) => {
   const [eye, setEye] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,6 +36,8 @@ export const Login = ({ setmode }) => {
       .then(() => {
         toast.success("Sign in done!");
         navigate("/products");
+        closeModal();
+        console.log("modal:", modal);
       })
       .catch((err) => toast.error(err));
   }
@@ -79,7 +81,12 @@ export const Login = ({ setmode }) => {
         </AuthLabel>
       </AuthInputWrap>
       <AuthSubmitBlock>
-        <AuthButton name="submit" type="submit" aria-label="Log In">
+        <AuthButton
+          name="submit"
+          type="submit"
+          // onClick={closeModal}
+          aria-label="Log In"
+        >
           Log in
         </AuthButton>
         <LinkStyled onClick={() => setmode("register")}>

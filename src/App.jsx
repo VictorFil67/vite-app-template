@@ -5,12 +5,14 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
 import { NotFound } from "./components/NotFound/NotFound";
 import PrivateRoute from "./routes/PrivateRoute";
+import { useSelector } from "react-redux";
+import { Loader } from "./components/Loader/Loader";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
+  const loading = useSelector((state) => state.loading.loading);
   return (
     <>
+      {loading && <Loader />}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

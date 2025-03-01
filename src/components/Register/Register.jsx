@@ -19,7 +19,7 @@ import { signUpThunk } from "../../store/auth/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-export const Register = ({ setmode }) => {
+export const Register = ({ setmode, closeModal }) => {
   const [eye, setEye] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,7 +35,8 @@ export const Register = ({ setmode }) => {
       .unwrap()
       .then(() => {
         toast.success("Sign up done!");
-        navigate("/login");
+        navigate("/products");
+        closeModal();
       })
       .catch((err) => toast.error(err));
   }

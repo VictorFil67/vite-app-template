@@ -114,7 +114,12 @@ const Header = () => {
       </HeaderContainer>
       {modal &&
         createPortal(
-          <Modal closeModal={closeModal} mode={mode} setmode={setmode} />,
+          <Modal
+            closeModal={closeModal}
+            mode={mode}
+            setmode={setmode}
+            modal={modal}
+          />,
           document.body
         )}
       {/* {modal &&
