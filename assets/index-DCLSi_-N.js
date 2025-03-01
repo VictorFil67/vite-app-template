@@ -471,6 +471,8 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
   width: 88.06%;
   position: relative;
   border: 1px solid rgba(104, 104, 104, 0.2);
+  background-color: aqua;
+  opacity: 0.8;
   /* border: 2px solid red; */
 
   /* background-color: green; */
